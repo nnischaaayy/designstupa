@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "A portfolio project",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Project title" },
+        "description": { "type": "string", "description": "Project description" },
+        "category": { "type": "string", "enum": ["Residential", "Commercial", "Modular Kitchen", "Office"], "description": "Project category" },
+        "location": { "type": "string", "description": "Project location" },
+        "mainImage": { "type": "string", "description": "Main project image URL" },
+        "beforeImage": { "type": "string", "description": "Before image URL" },
+        "afterImage": { "type": "string", "description": "After image URL" },
+        "gallery": { "type": "array", "items": { "type": "string" }, "description": "Gallery image URLs" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["title", "category", "mainImage"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "A contact form submission",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "projectType": { "type": "string" },
+        "propertySize": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["new", "contacted", "closed"], "description": "Lead status" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "phone", "email"]
+    },
+    "Testimonial": {
+      "title": "Testimonial",
+      "description": "Client review",
+      "type": "object",
+      "properties": {
+        "clientName": { "type": "string" },
+        "content": { "type": "string" },
+        "rating": { "type": "number" },
+        "projectType": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["clientName", "content", "rating"]
+    },
+    "BlogPost": {
+      "title": "Blog Post",
+      "description": "An editorial article",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "slug": { "type": "string" },
+        "content": { "type": "string" },
+        "excerpt": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "author": { "type": "string" },
+        "published": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "slug", "content"]
+    }
+  },
+  "firestore": {
+    "projects": { "schema": "Project", "description": "Portfolio projects" },
+    "leads": { "schema": "Lead", "description": "Contact form leads" },
+    "testimonials": { "schema": "Testimonial", "description": "Client testimonials" },
+    "blog": { "schema": "BlogPost", "description": "Blog posts" }
+  }
+}
