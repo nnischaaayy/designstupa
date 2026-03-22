@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Forum&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Forum", serif;
+  --font-sans: "DM Sans", sans-serif;
+  --color-brand-beige: #f5f2ed;
+  --color-brand-ink: #1a1a1a;
+  --color-brand-gold: #c5a059;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-brand-beige text-brand-ink selection:bg-brand-gold selection:text-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.glass-nav {
+  @apply backdrop-blur-md bg-white/10 border-b border-white/10;
+}
+
+.hero-overlay {
+  @apply bg-black/30;
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card-hover {
+  @apply transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl;
+}
