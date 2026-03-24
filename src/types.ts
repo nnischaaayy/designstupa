@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description?: string;
-  category: 'Residential' | 'Commercial' | 'Modular Kitchen' | 'Office';
+  category: 'Residential' | 'Commercial' | 'Modular Kitchen' | 'Office' | 'Architecture' | 'Interior' | 'Furniture Design';
   location?: string;
   mainImage: string;
   beforeImage?: string;
@@ -26,6 +26,7 @@ export interface Lead {
 export interface Testimonial {
   id: string;
   clientName: string;
+  location?: string;
   content: string;
   rating: number;
   projectType: string;

@@ -6,11 +6,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { StatsBar } from './components/StatsBar';
 import { Portfolio } from './components/Portfolio';
+import { Services } from './components/Services';
+import { Process } from './components/Process';
+import { Testimonials } from './components/Testimonials';
+import { EditorialQuote } from './components/EditorialQuote';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 const HomePage: React.FC = () => (
@@ -18,14 +25,20 @@ const HomePage: React.FC = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    transition={{ duration: 0.8 }}
+    transition={{ duration: 0.6 }}
   >
     <Hero />
+    <StatsBar />
     <Portfolio />
+    <Services />
+    <Process />
+    <Testimonials />
+    <EditorialQuote />
     <Contact />
   </motion.div>
 );
 
+// Placeholder pages for nav links (expand these in the full build)
 const PortfolioPage: React.FC = () => (
   <motion.div
     initial={{ opacity: 0 }}
@@ -33,10 +46,7 @@ const PortfolioPage: React.FC = () => (
     exit={{ opacity: 0 }}
     className="pt-32 pb-24 bg-paper"
   >
-    <div className="max-w-7xl mx-auto px-6">
-      <h1 className="text-7xl font-light mb-12">Portfolio</h1>
-      <Portfolio />
-    </div>
+    <Portfolio />
   </motion.div>
 );
 
@@ -45,7 +55,7 @@ const ContactPage: React.FC = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="pt-32 bg-ink"
+    className="pt-32 bg-white"
   >
     <Contact />
   </motion.div>
@@ -67,6 +77,7 @@ export default function App() {
             </AnimatePresence>
           </main>
           <Footer />
+          <FloatingWhatsApp />
         </div>
       </Router>
     </ErrorBoundary>
